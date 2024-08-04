@@ -25,6 +25,8 @@ All tests may be run from terminal commands:
 - behave
 - behave --tags=createAccount
 - behave --tags=signIn
+- behave -n 'Scenario name'
+- behave -i file_name.feature
 
 You can create also reports for the executed tests using the command:
 - behave -f htmel -o "report name".html
