@@ -1,60 +1,40 @@
 from behave import *
 
-@given('I can access the create an account page')
+@given('I am on the create an account page')
 def step_impl(context):
-    context.signIn_page.navigate_to_page()
+    context.base_page.navigate_to_page()
 
-@given('I am in the user account')
+@when('I click on the crete account menu')
 def step_impl(context):
-    context.signIn_page.navigate_to_page()
+    context.createAccount_page.click_create_account_menu()
 
-@given('I can acces the sign in menu')
-def step_impl(context):
-    context.signIn_page.navigate_to_page()
-
-@when('I close the demo navigation page')
-def step_impl(context):
-    context.signIn_page.close_navigation_demo()
-
-@when('I acces the crete account menu')
-def step_impl(context):
-    context.signIn_page.click_create_account_menu()
-
-@when('I input the first name "{first_name}"')
+@when('I fill the first name "{first_name}"')
 def step_impl(context, first_name):
-    context.signIn_page.insert_first_name(first_name)
+    context.createAccount_page.insert_first_name(first_name)
 
-@when('I input the last name "{last_name}"')
+@when('I fill the last name "{last_name}"')
 def step_impl(context, last_name):
-    context.signIn_page.insert_last_name(last_name)
+    context.createAccount_page.insert_last_name(last_name)
 
-@when('I input the email "{email}"')
+@when('I fill the email field "{email}"')
 def step_impl(context, email):
-    context.signIn_page.insert_email(email)
+    context.createAccount_page.insert_email_wrong(email)
 
-@when('I input the password "{password}"')
+@when('I fill the password field "{password}"')
 def step_impl(context, password):
-    context.signIn_page.insert_password(password)
+    context.createAccount_page.insert_password(password)
 
-@when('I confirm password "{password}"')
+@when('I fill the confirm password field "{password}"')
 def step_impl(context, password):
-    context.signIn_page.confirm_password(password)
+    context.createAccount_page.confirm_password(password)
 
-@when('I click create account button')
+@when('I click on create account button')
 def step_impl(context):
-    context.signIn_page.click_create_account_button()
+    context.createAccount_page.click_create_account_button()
 
-@when('I accesss the sign out menu')
+@given('I can access the sign in menu')
 def step_impl(context):
-    context.signIn_page.click_sign_out_menu()
-
-@when('I click the sign out button')
-def step_impl(context):
-    context.signIn_page.click_sign_out_button()
-
-@when('I click on sign in menu')
-def step_impl(context):
-    context.signIn_page.click_signin_menu()
+    context.base_page.navigate_to_page()
 
 @when('I fill the email "{email}"')
 def step_impl(context, email):
@@ -64,9 +44,21 @@ def step_impl(context, email):
 def step_impl(context, password):
     context.signIn_page.insert_sign_in_password(password)
 
+@when('I click on sign in menu')
+def step_impl(context):
+    context.signIn_page.click_signin_menu()
+
 @when('I click on sign in button')
 def step_impl(context):
     context.signIn_page.click_sign_in_button()
+
+@when('I accesss the sign out menu')
+def step_impl(context):
+    context.signOut_page.click_sign_out_menu()
+
+@when('I click the sign out button')
+def step_impl(context):
+    context.signOut_page.click_sign_out_button()
 
 @when('I click on Faceboock log in')
 def step_impl(context):
@@ -96,10 +88,6 @@ def step_impl(context):
 def step_impl(context):
     context.signIn_page.change_handle_to_linkedin_login_page()
 
-@when('I change handle again to home page')
-def step_impl(context):
-    context.signIn_page.change_handle_to_main_page()
-
 @when('I click on Yahoo log in')
 def step_impl(context):
     context.signIn_page.click_yahoo_signin_button()
@@ -127,10 +115,6 @@ def step_impl(context):
 @when('I accept yahoo cookies')
 def step_impl(context):
     context.signIn_page.accept_yahoo_cookies()
-
-@when('I change handle to main page')
-def step_impl(context):
-    context.signIn_page.change_handle_to_main_page()
 
 @when('I click on Yahoo login page')
 def step_impl(context):
@@ -168,21 +152,13 @@ def step_impl(context, password):
 def step_impl(context):
     context.signIn_page.click_github_signin()
 
-@when('I will change handle to main page')
-def step_impl(context):
-    context.signIn_page.change_handle_to_main_page()
-
 @then('The displayed message is "{message}"')
 def step_impl(context, message):
-    assert message in context.signIn_page.get_message_text()
+    assert message in context.createAccount_page.get_message_text()
 
 @then('The sign out displayed message is "{message}"')
 def step_impl(context, message):
-    assert message in context.signIn_page.get_sign_out_message_text()
-
-@then('The sign in message is "{message}"')
-def step_impl(context, message):
-    assert message in context.signIn_page.get_message_text()
+    assert message in context.signOut_page.get_sign_out_message_text()
 
 @then('The sign in error message is "{message}"')
 def step_impl(context, message):
@@ -199,12 +175,3 @@ def step_impl(context, message):
 @then('The Linkedin error message is "{message}"')
 def step_impl(context, message):
     assert message in context.signIn_page.get_linkedin_error_message_text()
-
-@then('The Yahoo signin message is "{message}"')
-def step_impl(context, message):
-    assert message in context.signIn_page.get_message_text()
-
-@then('The Github signin message is "{message}"')
-def step_impl(context, message):
-    assert message in context.signIn_page.get_message_text()
-

@@ -2,13 +2,24 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 
 from driver import Driver
 
+
 class BasePage(Driver):
+
+    URL = 'https://osc-ultimate-demo.mageplaza.com/'
+
+    def navigate_to_page(self):
+        self.driver.get(self.URL)
 
     def click(self, locator):
         self.driver.find_element(*locator).click()
+
+    def action_chain(self, locator):
+        button = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
+        ActionChains(self.driver).move_to_element(button).click(button).perform()
 
     def type(self, locator, text):
         self.driver.find_element(*locator).clear()
@@ -60,6 +71,6 @@ class BasePage(Driver):
         for i in range(30):
             self.driver.execute_script(f"window.scrollTo(0, {i * 500});")
 
-    def accept_cookies(self, locator):
-        accept_cookies = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
-        ActionChains(self.driver).move_to_element(accept_cookies).click(accept_cookies).perform()
+    def select_from_dropdown(self, locator, value):
+        menu = Select(WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator)))
+        menu.select_by_visible_text(value)

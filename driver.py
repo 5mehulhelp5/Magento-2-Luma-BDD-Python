@@ -1,9 +1,10 @@
 from selenium import webdriver
 
-class Driver:
+
+class Driver():
 
     driver = webdriver.Chrome()
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(30)
     driver.maximize_window()
 
     def close(self):

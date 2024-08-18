@@ -2,15 +2,7 @@ from behave import *
 
 @given('I am on create an account page')
 def step_impl(context):
-    context.createAccount_page.navigate_to_page()
-
-@given('I am in the user page')
-def step_impl(context):
-    context.createAccount_page.navigate_to_page()
-
-@when("I close the navigation demo page")
-def step_impl(context):
-    context.createAccount_page.close_navigation_demo()
+    context.base_page.navigate_to_page()
 
 @when('I click on crete account menu')
 def step_impl(context):
@@ -46,13 +38,13 @@ def step_impl(context):
 
 @when('I click on sign out menu')
 def step_impl(context):
-    context.createAccount_page.click_sign_out_menu()
+    context.signOut_page.click_sign_out_menu()
 
 @when('I click on sign out button')
 def step_impl(context):
-    context.createAccount_page.click_sign_out_button()
+    context.signOut_page.click_sign_out_button()
 
-@then('The email error message is "{message}"')
+@then('The wrong email format message is "{message}"')
 def step_impl(context, message):
     assert message in context.createAccount_page.get_invalid_mail_message_text()
 
@@ -78,7 +70,7 @@ def step_impl(context, message):
 
 @then('The sign out message is "{message}"')
 def step_impl(context, message):
-    assert message in context.createAccount_page.get_sign_out_message_text()
+    assert message in context.signOut_page.get_sign_out_message_text()
 
 @then('The error message is "{message}"')
 def step_impl(context, message):
@@ -87,5 +79,3 @@ def step_impl(context, message):
 @then('The message is "{message}"')
 def step_impl(context, message):
     assert message in context.createAccount_page.get_message_text()
-
-
