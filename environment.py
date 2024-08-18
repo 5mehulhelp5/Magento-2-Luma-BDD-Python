@@ -4,8 +4,8 @@ from pages.createAccount_page import CreateAccount
 from pages.signIn_page import SignIn
 from pages.signOut_page import SignOut
 from pages.myAccount_page import MyAccount
-from pages.searchAndFilterProducts_page import *
-from pages.shoppingCart_page import *
+from pages.searchAndFilterProducts_page import SearchAndFilterProducts
+from pages.shoppingCart_page import ShoppingCart
 
 
 def before_all(context):
@@ -16,6 +16,8 @@ def before_all(context):
     context.signIn_page = SignIn()
     context.signOut_page = SignOut()
     context.myAccount_page = MyAccount()
+    context.shoppingCart = ShoppingCart()
+    context.searchAndFilterProducts = SearchAndFilterProducts()
 
 
 def after_all(context):

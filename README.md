@@ -34,6 +34,8 @@ You can create also reports for the executed tests using the command:
 ### Project structure
 - createAccountTests
 - myAccountTests
+- searchAndFilterProductsTests
+- shoppingCartTests
 - signInTests
 
 ### Tests results
