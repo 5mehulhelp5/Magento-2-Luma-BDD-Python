@@ -2,7 +2,7 @@
 Feature: All the tests related to create an account
   Background:
     Given I am on create an account page
-    When When I click on crete account menu
+    When I click on crete account menu
 
   Scenario: Input a wrong email format
     When I insert the first name "Mihai"
