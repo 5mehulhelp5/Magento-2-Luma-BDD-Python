@@ -113,7 +113,7 @@ def step_impl(context):
 
 @when('I store the product presentation images')
 def step_impl(context):
-    context.searchAndFilterProducts_page.store_presentation_images
+    context.searchAndFilterProducts_page.store_presentation_images()
 
 
 @when('I select the size 34')
@@ -128,7 +128,7 @@ def step_impl(context):
 
 @when('I restore the product presentation images')
 def step_impl(context):
-    context.searchAndFilterProducts_page.restore_presentation_images
+    context.searchAndFilterProducts_page.restore_presentation_images()
 
 
 @then('The filtering message is "{message}"')

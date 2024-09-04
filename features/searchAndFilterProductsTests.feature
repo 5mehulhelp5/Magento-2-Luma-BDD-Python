@@ -30,7 +30,7 @@ Feature: All tests related to search and filter products
     When I click on search button
     When I sort the products by "Price"
     Then The products sorting message is "The list is sorted."
-@test
+
   Scenario: Applying filters to products doesn't modify the page layout
     When I select the group to which the product is addressed
     When I select the product range
