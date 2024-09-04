@@ -1,11 +1,13 @@
 from selenium.webdriver.common.by import By
 
+CLOSE_DEMO_NAVIGATION_SELECTOR = (By.XPATH, '//button[@class="navigation-close" and @title="Close navigation"]')
 LAST_PAGE_NUMBER_SELECTOR = (By.XPATH, '//div[@class="pages"]/ul[@class="items pages-items"]/li[@class="item"][last()]/a/span[last()][last()]')
-MAN_BOTTOMS_MENU_SELECTOR = (By.XPATH, '//a[@id="ui-id-18"]')
+MAN_BOTTOMS_MENU_SELECTOR = (By.XPATH, '//a[contains(text(), "Bottoms")]')
 MAN_MENU_SELECTOR = (By.XPATH, '//li[@class="level0 nav-3 category-item level-top parent ui-menu-item"]')
-MAN_PANTS_MENU_SELECTOR = (By.XPATH, '//a[@id="ui-id-19"]')
+MAN_PANTS_MENU_SELECTOR = (By.XPATH, '//a[contains(text(), "Pants")]')
 NEXT_PAGE_SELECTOR = (By.XPATH, '//a[@class="action  next"]')
 PRODUCT_CATEGORY_SELECTOR = (By.XPATH, '(//a[contains(text(), "Hoodies & Sweatshirts")])[2]')
+PRODUCT_CATEGORY_1_SELECTOR = (By.XPATH, '//div[@data-role="title" and @class="filter-options-title"]')
 PRODUCT_COLOR_SELECTOR = (By.XPATH, '//div[contains(text(), "Color")]')
 PRODUCT_COLOR_WHITE_SELECTOR = (By.XPATH, '//div[@class="swatch-option color " and @data-option-label="White"]')
 PRODUCT_COLOR_BLUE_SELECTOR = (By.XPATH, '//div[@class="swatch-option color" and @data-option-label="Blue"]')
@@ -23,5 +25,6 @@ SEARCH_BAR_SELECTOR = (By.XPATH, '//input[@id="search" and @class="input-text"]'
 SEARCH_BUTTON_SELECTOR = (By.XPATH, '//button[@type="submit" and @class="action search"]')
 SEARCH_ERROR_SELECTOR = (By.XPATH, '//div[@class="message notice"]/div[contains(text(), "Your search returned no results. ")]')
 SORTING_MENU_SELECTOR = (By.XPATH, '//select[@id="sorter" and @class="sorter-options"]')
+TOTAL_ITEMS_ON_PAGE_SELECTOR = (By.XPATH, '//p[@class="toolbar-amount"]/span[2]')
 TOTAL_SEARCHED_ITEMS_SELECTOR = (By.XPATH, '//p[@class="toolbar-amount"]/span[last()]')
 WHAT_IS_NEW_MENU_SELECTOR = (By.XPATH, '//span[contains(text(), \"What\'s New")]')

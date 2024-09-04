@@ -35,4 +35,5 @@ class MyAccount(BasePage):
         self.click(SHIPPING_SAVE_ADDRESS_SELECTOR)
 
     def get_save_address_message(self):
-        self.get_element_text(SHIPPING_SAVE_ADDRESS_MESSAGE_SELECTOR)
+        self.get_element_text(SHIPPING_SAVE_ADDRESS_MESSAGE_SELECTOR
+                              )

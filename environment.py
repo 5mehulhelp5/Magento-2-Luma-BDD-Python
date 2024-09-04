@@ -16,8 +16,8 @@ def before_all(context):
     context.signIn_page = SignIn()
     context.signOut_page = SignOut()
     context.myAccount_page = MyAccount()
-    context.shoppingCart = ShoppingCart()
-    context.searchAndFilterProducts = SearchAndFilterProducts()
+    context.shoppingCart_page = ShoppingCart()
+    context.searchAndFilterProducts_page = SearchAndFilterProducts()
 
 
 def after_all(context):

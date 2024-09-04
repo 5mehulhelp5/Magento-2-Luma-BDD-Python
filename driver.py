@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 
-class Driver():
+class Driver:
 
     driver = webdriver.Chrome()
     driver.implicitly_wait(30)
