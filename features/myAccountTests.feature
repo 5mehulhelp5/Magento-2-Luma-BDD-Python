@@ -1,7 +1,7 @@
 @myAccount
 Feature: All tests related to My Account
   Scenario: Positive create an account
-    Given I can accesss the create an account page
+    Given I can access the create an account page
     When I click on crete a new account menu
     When I input the first name "Mihai"
     When I input the last name "Daneasa"

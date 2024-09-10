@@ -29,7 +29,7 @@ All tests may be run from terminal commands:
 - behave -i file_name.feature
 
 You can create also reports for the executed tests using the command:
-- behave -f html -o "report name".html
+- behave -f html -o"report name".html
 
 ### Project structure
 - createAccountTests

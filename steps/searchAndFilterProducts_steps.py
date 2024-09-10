@@ -73,7 +73,7 @@ def step_impl(context, value):
 
 @then('The products sorting message is "{message}"')
 def step_impl(context, message):
-    assert message in context.searchAndFilterProducts_page.verify_sorting()
+    assert message in context.searchAndFilterProducts_page.verify_sorting
 
 
 @when('I select the group to which the product is addressed')
@@ -133,4 +133,4 @@ def step_impl(context):
 
 @then('The filtering message is "{message}"')
 def step_impl(context, message):
-    assert message in context.searchAndFilterProducts_page.verify_page_layout()
+    assert message in context.searchAndFilterProducts_page.verify_page_layout

@@ -44,4 +44,3 @@ Feature: All tests related to search and filter products
     When I select the color blue
     When I restore the product presentation images
     Then The filtering message is "The page layout is the same."
-

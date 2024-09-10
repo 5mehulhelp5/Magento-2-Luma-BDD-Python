@@ -36,18 +36,19 @@ class SearchAndFilterProducts(BasePage):
             except TimeoutException:
                 break
 
-        assert f'{total_items.text}' in f'{total_items_founded.text}', 'Error, I can not find anything'
-
-        return 'The total item text is equal with the total items founded.'
+        if f'{total_items.text}' in f'{total_items_founded.text}':
+            return 'The total item text is equal with the total items founded.'
+        else:
+            return 'Error, I can not find anything'
 
     def verify_product_not_found(self):
         message_container = WebDriverWait(self.driver, 5).until(
             EC.presence_of_element_located(SEARCH_ERROR_SELECTOR)).text
 
-        assert f'{message_container}' == 'Your search returned no results.\nDid you mean\nbase\nbest', \
-            'Error, The message is not the same'
-
-        return 'Your search returned no results.'
+        if f'{message_container}' == 'Your search returned no results.\nDid you mean\nbase\nbest':
+            return 'Your search returned no results.'
+        else:
+            return 'Error, The message is not the same'
 
     def click_whats_new_menu(self):
         self.wait_for_element(WHAT_IS_NEW_MENU_SELECTOR, 5).click()
@@ -73,13 +74,15 @@ class SearchAndFilterProducts(BasePage):
         total_items_founded = WebDriverWait(self.driver, 5).until(
             EC.presence_of_all_elements_located(PRODUCT_ITEM_SELECTOR))
 
-        assert f'{int(total_items.text)}' == f'{len(total_items_founded)}', 'Error, the results don\'t match'
-
-        return 'I found all the products.'
+        if f'{int(total_items.text)}' == f'{len(total_items_founded)}':
+            return 'I found all the products.'
+        else:
+            return 'Error, the results don\'t match'
 
     def sort_products_by_price(self, value):
         self.select_from_dropdown(SORTING_MENU_SELECTOR, value)
 
+    @property
     def verify_sorting(self):
         i = 1
         while True:
@@ -114,9 +117,10 @@ class SearchAndFilterProducts(BasePage):
                 return f'I have encountered a problem {str(e)}'
             i += 1
 
-            assert 'The list is sorted' in message, 'The list is unsorted'
-
-            return 'The list is sorted.'
+            if message == 'The list is sorted':
+                return 'The list is sorted.'
+            else:
+                return 'The list is unsorted'
 
     def group_selection(self):
         self.wait_for_element(MAN_MENU_SELECTOR, 5).click()
@@ -151,7 +155,9 @@ class SearchAndFilterProducts(BasePage):
     def restore_presentation_images(self):
         self.store_page_layout(PRODUCT_PRESENTATION_IMAGES_SELECTOR)
 
+    @property
     def verify_page_layout(self):
-        assert self.store_presentation_images == self.restore_presentation_images, 'The page was modified.'
-
-        return '{message}'
+        if self.store_presentation_images == self.restore_presentation_images:
+            return 'The page layout is the same.'
+        else:
+            return 'The page layout was modified'

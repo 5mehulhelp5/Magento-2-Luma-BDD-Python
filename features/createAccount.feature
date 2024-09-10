@@ -61,7 +61,7 @@ Feature: All the tests related to create an account
   Scenario: Digits in first name and last name
     When I insert the first name "Mihai1"
     When I insert the last name "Daneasa1"
-    When I insert the email "testaredelta1@test.com"
+    When I insert the email "testare@test.com"
     When I insert the password "test@Magento1"
     When I confirm the password "test@Magento1"
     When I click the create account button
@@ -80,8 +80,6 @@ Feature: All the tests related to create an account
     Then The error message is "There is already an account with this email address. If you are sure that it is your email address, "
 
   Scenario: Positive create an account
-    Given I am on create an account page
-    When When I click on crete account menu
     When I insert the first name "Mihai"
     When I insert the last name "Daneasa"
     When I insert the email

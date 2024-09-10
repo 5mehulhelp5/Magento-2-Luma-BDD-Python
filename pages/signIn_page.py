@@ -85,6 +85,9 @@ class SignIn(BasePage):
     def accept_yahoo_cookies(self):
         self.click(YAHOO_ACCEPT_COOKIES_SELECTOR)
 
+    def get_yahoo_error_message_text(self):
+        return self.get_element_text(YAHOO_ERROR_MESSAGE_SELECTOR)
+
     def change_handle_to_main_page(self):
         self.driver.switch_to.window(self.driver.window_handles[0])
 

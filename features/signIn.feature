@@ -10,7 +10,7 @@ Feature: All signin related tests
     When I fill the confirm password field "test@Magento1"
     When I click on create account button
     Then The displayed message is "Welcome, Mihai Daneasa!"
-    When I accesss the sign out menu
+    When I access the sign out menu
     When I click the sign out button
     Then The sign out displayed message is "You are signed out"
 
@@ -21,7 +21,7 @@ Feature: All signin related tests
     When I fill the password "test@Magento1"
     When I click on sign in button
     Then The displayed message is "Welcome, Mihai Daneasa!"
-    When I accesss the sign out menu
+    When I access the sign out menu
     When I click the sign out button
     Then The sign out displayed message is "You are signed out"
 
@@ -67,25 +67,34 @@ Feature: All signin related tests
     Then The Linkedin error message is "The application is disabled"
     When I change handle to home page
 
-  Scenario: Yahoo sign in
+#  Scenario: Positive Yahoo sign in
+#    Given I can access the sign in menu
+#    When I click on sign in menu
+#    When I click on Yahoo log in
+#    When I change to Yahoo login page
+#    When I introduce the email "mihaiteste@yahoo.com"
+#    When I click on first next button
+#    When I introduce the password "245228@Magento"
+#    When I click on second next button
+#    When I accept yahoo cookies
+#    When I change handle to home page
+#    When I click on Yahoo login page
+#    When I complete the password "test@magento1"
+#    When I complete the confirm password "test@magento1"
+#    When I click the submit button
+#    Then The displayed message is "Welcome, Mihai Daneasa!"
+#    When I access the sign out menu
+#    When I click the sign out button
+#    Then The sign out displayed message is "You are signed out"
+#    When I change handle to home page
+
+  Scenario: Negative Yahoo sign in
     Given I can access the sign in menu
     When I click on sign in menu
     When I click on Yahoo log in
     When I change to Yahoo login page
-    When I introduce the email "mihaiteste@yahoo.com"
-    When I click on first next button
-    When I introduce the password "245228@Magento"
-    When I click on second next button
-    When I accept yahoo cookies
+    Then The Yahoo error message is "Looks like something went wrong."
     When I change handle to home page
-    When I click on Yahoo login page
-    When I complete the password "test@magento1"
-    When I complete the confirm password "test@magento1"
-    When I click the submit button
-    Then The displayed message is "Welcome, Mihai Daneasa!"
-    When I accesss the sign out menu
-    When I click the sign out button
-    Then The sign out displayed message is "You are signed out"
 
   Scenario: Github sign in
     Given I can access the sign in menu

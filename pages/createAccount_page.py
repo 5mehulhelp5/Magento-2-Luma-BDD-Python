@@ -21,10 +21,10 @@ class CreateAccount(BasePage):
     def insert_last_name(self, last_name):
         self.type(LAST_NAME_SELECTOR, last_name)
 
-    def insert_email(self):
+    def insert_random_email(self):
         self.type(EMAIL_ADDRESS_SELECTOR, self.generate_random_email())
 
-    def insert_email_wrong(self, email):
+    def insert_email(self, email):
         self.type(EMAIL_ADDRESS_SELECTOR, email)
 
     def insert_password(self, password):
