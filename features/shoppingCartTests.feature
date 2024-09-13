@@ -2,6 +2,7 @@
 Feature: All shopping cart related tests
   Scenario: Positive create an account
     Given I can access the create account page
+    When I close the demo navigation window
     When I click the crete account menu
     When I complete the first name "Mihai"
     When I complete the last name "Daneasa"
@@ -29,5 +30,10 @@ Feature: All shopping cart related tests
     When I restore the product name
     Then I verify if "The product is the same"
     When I empty my cart
+    When I close the shopping cart window
 
+  Scenario: Sign out from account
+    When I press the sign out menu
+    When I press the sign out button
+    Then The message displayed is "You are signed out"
 

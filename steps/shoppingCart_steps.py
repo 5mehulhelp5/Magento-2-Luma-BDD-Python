@@ -6,6 +6,11 @@ def step_impl(context):
     context.base_page.navigate_to_page()
 
 
+@when('I close the demo navigation window')
+def step_impl(context):
+    context.shoppingCart_page.close_demo_navigation()
+
+
 @when('I click the crete account menu')
 def step_impl(context):
     context.createAccount_page.click_create_account_menu()
@@ -129,5 +134,25 @@ def step_impl(context, message):
 @when('I empty my cart')
 def step_impl(context):
     context.shoppingCart_page.remove_items()
+
+
+@when('I close the shopping cart window')
+def step_impl(context):
+    context.shoppingCart_page.close_shopping_cart_window()
+
+
+@when('I press the sign out menu')
+def step_impl(context):
+    context.signOut_page.click_sign_out_menu()
+
+
+@when('I press the sign out button')
+def step_impl(context):
+    context.signOut_page.click_sign_out_button()
+
+
+@then('The message displayed is "{message}"')
+def step_impl(context, message):
+    assert message in context.signOut_page.get_sign_out_message_text()
 
 

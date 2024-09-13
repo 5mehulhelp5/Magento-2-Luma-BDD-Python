@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-CLOSE_DEMO_NAVIGATION_SELECTOR = (By.XPATH, '//button[@class="navigation-close" and @title="Close navigation"]')
 LAST_PAGE_NUMBER_SELECTOR = (By.XPATH, '//div[@class="pages"]/ul[@class="items pages-items"]/li[@class="item"][last()]/a/span[last()][last()]')
 MAN_BOTTOMS_MENU_SELECTOR = (By.XPATH, '//a[contains(text(), "Bottoms")]')
 MAN_MENU_SELECTOR = (By.XPATH, '//li[@class="level0 nav-3 category-item level-top parent ui-menu-item"]')

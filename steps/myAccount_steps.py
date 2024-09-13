@@ -103,6 +103,8 @@ def step_impl(context):
 
 @then('The edit shipping address message is "{message}"')
 def step_impl(context, message):
+    print(message)
+    print(context.myAccount_page.get_save_address_message())
     assert message in context.myAccount_page.get_save_address_message()
 
 

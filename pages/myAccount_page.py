@@ -1,3 +1,5 @@
+import time
+
 from help_selectors.myAccountSelectors import *
 from pages.base_page import BasePage
 
@@ -35,4 +37,5 @@ class MyAccount(BasePage):
         self.click(SHIPPING_SAVE_ADDRESS_SELECTOR)
 
     def get_save_address_message(self):
-        self.get_element_text(SHIPPING_SAVE_ADDRESS_MESSAGE_SELECTOR)
+        time.sleep(1)
+        return self.wait_for_element(SHIPPING_SAVE_ADDRESS_MESSAGE_SELECTOR, 5).text

@@ -6,8 +6,12 @@ from pages.base_page import BasePage
 
 class ShoppingCart(BasePage):
 
+    def close_demo_navigation(self):
+        self.wait_for_element(CLOSE_DEMO_NAVIGATION_SELECTOR, 5).click()
+
     def store_product_name(self):
-        self.store_product_info(SELECTED_PRODUCT_NAME_SELECTOR)
+        time.sleep(1)
+        return len(self.wait_for_element(SELECTED_PRODUCT_NAME_SELECTOR, 5).text)
 
     def chose_size(self):
         self.wait_for_element(PRODUCT_FIRST_SIZE_SELECTOR, 5).click()
@@ -26,7 +30,8 @@ class ShoppingCart(BasePage):
         return self.driver.current_url
 
     def restore_product_name(self):
-        self.store_product_info(CART_PRODUCT_NAME_SELECTOR)
+        time.sleep(1)
+        return len(self.wait_for_element(CART_PRODUCT_NAME_SELECTOR, 5).text)
 
     def verify_if_product_is_the_same(self):
         if self.store_product_name != self.restore_product_name:
@@ -42,3 +47,6 @@ class ShoppingCart(BasePage):
         time.sleep(1)
         self.wait_for_element(REMOVE_ITEM_BUTTON_SELECTOR, 5).click()
         time.sleep(1)
+
+    def close_shopping_cart_window(self):
+        self.wait_for_element(CLOSE_SHOPPING_CART_WINDOW_SELECTOR, 5).click()
