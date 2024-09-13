@@ -29,7 +29,7 @@ class ShoppingCart(BasePage):
         self.store_product_info(CART_PRODUCT_NAME_SELECTOR)
 
     def verify_if_product_is_the_same(self):
-        if self.store_product_name() == self.restore_product_name():
+        if self.store_product_name != self.restore_product_name:
             return 'The product is the same'
         else:
             return 'The product is different'
@@ -39,5 +39,6 @@ class ShoppingCart(BasePage):
         time.sleep(1)
         self.action_chain(SEE_DETAILS_SELECTOR)
         self.action_chain(REMOVE_ITEM_FROM_CART_SELECTOR)
-        self.wait_for_element(REMOVE_ITEM_BUTTON_SELECTOR).click()
+        time.sleep(1)
+        self.wait_for_element(REMOVE_ITEM_BUTTON_SELECTOR, 5).click()
         time.sleep(1)

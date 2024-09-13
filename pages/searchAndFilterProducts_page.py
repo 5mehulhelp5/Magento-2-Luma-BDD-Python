@@ -82,7 +82,6 @@ class SearchAndFilterProducts(BasePage):
     def sort_products_by_price(self, value):
         self.select_from_dropdown(SORTING_MENU_SELECTOR, value)
 
-    @property
     def verify_sorting(self):
         i = 1
         while True:
@@ -155,7 +154,6 @@ class SearchAndFilterProducts(BasePage):
     def restore_presentation_images(self):
         self.store_page_layout(PRODUCT_PRESENTATION_IMAGES_SELECTOR)
 
-    @property
     def verify_page_layout(self):
         if self.store_presentation_images == self.restore_presentation_images:
             return 'The page layout is the same.'

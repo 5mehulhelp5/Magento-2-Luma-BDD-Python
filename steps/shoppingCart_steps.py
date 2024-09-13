@@ -121,9 +121,10 @@ def step_impl(context):
     context.shoppingCart_page.restore_product_name()
 
 
-@then('I verify if {message}')
+@then('I verify if "{message}"')
 def step_impl(context, message):
     assert message in context.shoppingCart_page.verify_if_product_is_the_same()
+
 
 @when('I empty my cart')
 def step_impl(context):

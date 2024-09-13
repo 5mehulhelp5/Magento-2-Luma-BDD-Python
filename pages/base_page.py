@@ -51,6 +51,8 @@ class BasePage(Driver):
         return len(listed_images)
 
     def store_product_info(self, locator):
-        product_name = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator)).text
+        time.sleep(1)
+        product_name_info = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
+        product_name = str(product_name_info.text)
 
-        return product_name
+        return len(product_name)
