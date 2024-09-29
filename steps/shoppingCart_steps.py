@@ -51,46 +51,6 @@ def step_impl(context, message):
     assert message in context.createAccount_page.get_message_text()
 
 
-# @step('I am on the main page')
-# def step_impl(context):
-#     context.base_page.navigate_to_page()
-#
-#
-# @step('I chose the group to which the product is addressed')
-# def step_impl(context):
-#     context.searchAndFilterProducts_page.group_selection()
-#
-#
-# @step('I chose the product range')
-# def step_impl(context):
-#     context.searchAndFilterProducts_page.range_selection()
-#
-#
-# @step('I click on the category button')
-# def step_impl(context):
-#     context.searchAndFilterProducts_page.category_selection()
-#
-#
-# @step('I chose pants category')
-# def step_impl(context):
-#     context.searchAndFilterProducts_page.pants_category_selection()
-#
-#
-# @step('I chose the product style menu')
-# def step_impl(context):
-#     context.searchAndFilterProducts_page.style_menu_selection()
-#
-#
-# @step('I chose the desired style')
-# def step_impl(context):
-#     context.searchAndFilterProducts_page.style_selection()
-#
-#
-# @step('I chose the desired product')
-# def step_impl(context):
-#     context.searchAndFilterProducts_page.product_selection()
-
-
 @given('I have successfully selected the desired product')
 def step_execute_choose_a_product(context):
     context.execute_steps('\n'
