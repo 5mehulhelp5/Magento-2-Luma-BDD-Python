@@ -15,7 +15,4 @@ ERROR_INVALID_FIELD_SELECTOR = (By.XPATH, '//div[@id="email_address_create-error
 FIRST_NAME_SELECTOR = (By.XPATH, '//input[@id="firstname" and @title="First Name"]')
 LAST_NAME_SELECTOR = (By.XPATH, '//input[@id="lastname" and @title="Last Name"]')
 PASSWORD_INPUT_SELECTOR = (By.XPATH, '//input[@id="password-social" and @title="Password"]')
-SIGN_OUT_BUTTON_SELECTOR = (By.XPATH, '//li[@class="link authorization-link"]')
-SIGN_OUT_MENU_SELECTOR = (By.XPATH, '//button[@class="action switch" and @data-action="customer-menu-toggle"]')
-SIGN_OUT_MESSAGE_SELECTOR = (By.XPATH, '//span[@data-ui-id="page-title-wrapper"]')
 WELCOME_MESSAGE_SELECTOR = (By.XPATH, '//span[@class="logged-in"]')

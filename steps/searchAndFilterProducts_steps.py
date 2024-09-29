@@ -133,6 +133,4 @@ def step_impl(context):
 
 @then('The filtering message is "{message}"')
 def step_impl(context, message):
-    print(message)
-    print(context.searchAndFilterProducts_page.verify_page_layout())
     assert message in context.searchAndFilterProducts_page.verify_page_layout()

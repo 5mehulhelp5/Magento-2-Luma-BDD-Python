@@ -13,14 +13,7 @@ Feature: All shopping cart related tests
     Then The message displayed is: "Welcome, Mihai Daneasa!"
 
   Scenario: Adding a product to shopping cart
-    Given I am on the main page
-    When I chose the group to which the product is addressed
-    When I chose the product range
-    When I click on the category button
-    When I chose pants category
-    When I chose the product style menu
-    When I chose the desired style
-    When I chose the desired product
+    Given I have successfully selected the desired product
     When I store the product name
     When I chose the desired size
     When I chose the desired color
@@ -30,9 +23,21 @@ Feature: All shopping cart related tests
     When I restore the product name
     Then I verify if "The product is the same"
     When I empty my cart
-    When I close the shopping cart window
+
+  Scenario: Remove an item from cart
+    Given I have successfully selected the desired product
+    When I chose the desired size
+    When I chose the desired color
+    When I chose the quantity "1"
+    When I add the product to cart
+    When I select the cart menu
+    When I click details button
+    When I click the remove item button
+    When I confirm the removal of the product
+    Then The removed item message is: "You have no items in your shopping cart."
 
   Scenario: Sign out from account
+    When I close the shopping cart window
     When I press the sign out menu
     When I press the sign out button
     Then The message displayed is "You are signed out"

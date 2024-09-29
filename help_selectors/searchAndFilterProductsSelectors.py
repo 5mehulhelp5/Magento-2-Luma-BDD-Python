@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 LAST_PAGE_NUMBER_SELECTOR = (By.XPATH, '//div[@class="pages"]/ul[@class="items pages-items"]/li[@class="item"][last()]/a/span[last()][last()]')
 MAN_BOTTOMS_MENU_SELECTOR = (By.XPATH, '//a[contains(text(), "Bottoms")]')
-MAN_MENU_SELECTOR = (By.XPATH, '//li[@class="level0 nav-3 category-item level-top parent ui-menu-item"]')
+MAN_MENU_SELECTOR = (By.XPATH, '//li[@class="level0 nav-4 category-item level-top parent ui-menu-item"]')
 MAN_PANTS_MENU_SELECTOR = (By.XPATH, '//a[contains(text(), "Pants")]')
 NEXT_PAGE_SELECTOR = (By.XPATH, '//a[@class="action  next"]')
 PRODUCT_CATEGORY_SELECTOR = (By.XPATH, '(//a[contains(text(), "Hoodies & Sweatshirts")])[2]')

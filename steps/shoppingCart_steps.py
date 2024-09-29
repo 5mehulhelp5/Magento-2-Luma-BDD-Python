@@ -51,44 +51,59 @@ def step_impl(context, message):
     assert message in context.createAccount_page.get_message_text()
 
 
-@given('I am on the main page')
-def step_impl(context):
-    context.base_page.navigate_to_page()
+# @step('I am on the main page')
+# def step_impl(context):
+#     context.base_page.navigate_to_page()
+#
+#
+# @step('I chose the group to which the product is addressed')
+# def step_impl(context):
+#     context.searchAndFilterProducts_page.group_selection()
+#
+#
+# @step('I chose the product range')
+# def step_impl(context):
+#     context.searchAndFilterProducts_page.range_selection()
+#
+#
+# @step('I click on the category button')
+# def step_impl(context):
+#     context.searchAndFilterProducts_page.category_selection()
+#
+#
+# @step('I chose pants category')
+# def step_impl(context):
+#     context.searchAndFilterProducts_page.pants_category_selection()
+#
+#
+# @step('I chose the product style menu')
+# def step_impl(context):
+#     context.searchAndFilterProducts_page.style_menu_selection()
+#
+#
+# @step('I chose the desired style')
+# def step_impl(context):
+#     context.searchAndFilterProducts_page.style_selection()
+#
+#
+# @step('I chose the desired product')
+# def step_impl(context):
+#     context.searchAndFilterProducts_page.product_selection()
 
 
-@when('I chose the group to which the product is addressed')
-def step_impl(context):
-    context.searchAndFilterProducts_page.group_selection()
-
-
-@when('I chose the product range')
-def step_impl(context):
-    context.searchAndFilterProducts_page.range_selection()
-
-
-@when('I click on the category button')
-def step_impl(context):
-    context.searchAndFilterProducts_page.category_selection()
-
-
-@when('I chose pants category')
-def step_impl(context):
-    context.searchAndFilterProducts_page.pants_category_selection()
-
-
-@when('I chose the product style menu')
-def step_impl(context):
-    context.searchAndFilterProducts_page.style_menu_selection()
-
-
-@when('I chose the desired style')
-def step_impl(context):
-    context.searchAndFilterProducts_page.style_selection()
-
-
-@when('I chose the desired product')
-def step_impl(context):
-    context.searchAndFilterProducts_page.product_selection()
+@given('I have successfully selected the desired product')
+def step_execute_choose_a_product(context):
+    context.execute_steps('\n'
+                          '        Given I can access the products presentation page \n'
+                          '        When I select the group to which the product is addressed \n'
+                          '        When I select the product range \n'
+                          '        When I click the category button \n'
+                          '        When I select pants category \n'
+                          '        When I select the product style menu \n'
+                          '        When I select the desired style \n'
+                          '        When I select the desired product \n'
+                          '        '
+                          )
 
 
 @when('I store the product name')
@@ -135,6 +150,30 @@ def step_impl(context, message):
 def step_impl(context):
     context.shoppingCart_page.remove_items()
 
+@when('I select the cart menu')
+def step_impl(context):
+    context.shoppingCart_page.select_cart_menu()
+
+
+@when('I click details button')
+def step_impl(context):
+    context.shoppingCart_page.select_details_menu()
+
+
+@when('I click the remove item button')
+def step_impl(context):
+    context.shoppingCart_page.remove_item_from_cart()
+
+
+@when('I confirm the removal of the product')
+def step_impl(context):
+    context.shoppingCart_page.click_remove_item_button()
+
+
+@then('The removed item message is: "{message}"')
+def step_impl(context, message):
+    assert message in context.shoppingCart_page.get_removed_item_message()
+
 
 @when('I close the shopping cart window')
 def step_impl(context):
@@ -154,5 +193,3 @@ def step_impl(context):
 @then('The message displayed is "{message}"')
 def step_impl(context, message):
     assert message in context.signOut_page.get_sign_out_message_text()
-
-

@@ -24,6 +24,7 @@ class ShoppingCart(BasePage):
 
     def add_product_to_cart(self):
         self.wait_for_element(ADD_TO_CART_SELECTOR, 5).click()
+        time.sleep(5)
 
     def verify_cart_page_url(self):
         time.sleep(5)
@@ -50,3 +51,24 @@ class ShoppingCart(BasePage):
 
     def close_shopping_cart_window(self):
         self.wait_for_element(CLOSE_SHOPPING_CART_WINDOW_SELECTOR, 5).click()
+
+    def select_cart_menu(self):
+        time.sleep(5)
+        self.action_chain(CART_SELECTOR)
+        time.sleep(1)
+
+    def select_details_menu(self):
+        self.action_chain(SEE_DETAILS_SELECTOR)
+
+    def remove_item_from_cart(self):
+        self.action_chain(REMOVE_ITEM_FROM_CART_SELECTOR)
+        time.sleep(1)
+
+    def click_remove_item_button(self):
+        self.wait_for_element(REMOVE_ITEM_BUTTON_SELECTOR, 5).click()
+
+    def get_removed_item_message(self):
+        return self.get_element_text(DELETED_ITEMS_MESSAGE_SELECTOR)
+
+
+
