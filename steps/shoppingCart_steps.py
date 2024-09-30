@@ -1,54 +1,24 @@
 from behave import *
 
 
-@given('I can access the create account page')
-def step_impl(context):
-    context.base_page.navigate_to_page()
+@given('I create a new account')
+def step_execute_create_account(context):
+    context.execute_steps('\n'
+                          '        Given I am on create an account page\n'
+                          '        When I click on crete account menu\n'
+                          '        When I insert the first name "Mihai"\n'
+                          '        When I insert the last name "Daneasa"\n'
+                          '        When I insert the email\n'
+                          '        When I insert the password "test@Magento1"\n'
+                          '        When I confirm the password "test@Magento1"\n'
+                          '        When I click the create account button\n'
+                          '        '
+                          )
 
 
 @when('I close the demo navigation window')
 def step_impl(context):
     context.shoppingCart_page.close_demo_navigation()
-
-
-@when('I click the crete account menu')
-def step_impl(context):
-    context.createAccount_page.click_create_account_menu()
-
-
-@when('I complete the first name "{first_name}"')
-def step_impl(context, first_name):
-    context.createAccount_page.insert_first_name(first_name)
-
-
-@when('I complete the last name "{last_name}"')
-def step_impl(context, last_name):
-    context.createAccount_page.insert_last_name(last_name)
-
-
-@when('I complete the email')
-def step_impl(context):
-    context.createAccount_page.insert_random_email()
-
-
-@when('I complete the password field "{password}"')
-def step_impl(context, password):
-    context.createAccount_page.insert_password(password)
-
-
-@when('I complete the confirm password field "{password}"')
-def step_impl(context, password):
-    context.createAccount_page.confirm_password(password)
-
-
-@when('I press the create account button')
-def step_impl(context):
-    context.createAccount_page.click_create_account_button()
-
-
-@then('The message displayed is: "{message}"')
-def step_impl(context, message):
-    assert message in context.createAccount_page.get_message_text()
 
 
 @given('I have successfully selected the desired product')

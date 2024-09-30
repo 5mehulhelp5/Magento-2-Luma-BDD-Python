@@ -1,19 +1,11 @@
 @shoppingCart
 Feature: All shopping cart related tests
   Scenario: Positive create an account
-    Given I can access the create account page
-    When I close the demo navigation window
-    When I click the crete account menu
-    When I complete the first name "Mihai"
-    When I complete the last name "Daneasa"
-    When I complete the email
-    When I complete the password field "test@Magento1"
-    When I complete the confirm password field "test@Magento1"
-    When I press the create account button
-    Then The message displayed is: "Welcome, Mihai Daneasa!"
+    Given I create a new account
 
   Scenario: Adding a product to shopping cart
     Given I have successfully selected the desired product
+    When I close the demo navigation window
     When I store the product name
     When I chose the desired size
     When I chose the desired color
