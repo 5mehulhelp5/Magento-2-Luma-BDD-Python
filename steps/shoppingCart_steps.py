@@ -12,6 +12,7 @@ def step_execute_create_account(context):
                           '        When I insert the password "test@Magento1"\n'
                           '        When I confirm the password "test@Magento1"\n'
                           '        When I click the create account button\n'
+                          '        Then The message is "Welcome, Mihai Daneasa!"\n'
                           '        '
                           )
 

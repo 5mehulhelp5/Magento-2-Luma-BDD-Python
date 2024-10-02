@@ -1,54 +1,25 @@
 from behave import *
 
 
+@given('I am creating a new account')
+def step_execute_create_account(context):
+    context.execute_steps('\n'
+                          '        Given I am on create an account page\n'
+                          '        When I click on crete account menu\n'
+                          '        When I insert the first name "Mihai"\n'
+                          '        When I insert the last name "Daneasa"\n'
+                          '        When I insert the email\n'
+                          '        When I insert the password "test@Magento1"\n'
+                          '        When I confirm the password "test@Magento1"\n'
+                          '        When I click the create account button\n'
+                          '        Then The message is "Welcome, Mihai Daneasa!"\n'
+                          '        '
+                          )
+
+
 @given('I can access the my account page')
 def step_impl(context):
     context.base_page.navigate_to_page()
-
-
-@given('I can access the create an account page')
-def step_impl(context):
-    context.base_page.navigate_to_page()
-
-
-@when('I click on crete a new account menu')
-def step_impl(context):
-    context.createAccount_page.click_create_account_menu()
-
-
-@when('I input the first name "{first_name}"')
-def step_impl(context, first_name):
-    context.createAccount_page.insert_first_name(first_name)
-
-
-@when('I input the last name "{last_name}"')
-def step_impl(context, last_name):
-    context.createAccount_page.insert_last_name(last_name)
-
-
-@when('I input the email')
-def step_impl(context):
-    context.createAccount_page.insert_random_email()
-
-
-@when('I input the password "{password}"')
-def step_impl(context, password):
-    context.createAccount_page.insert_password(password)
-
-
-@when('I confirm the new password "{password}"')
-def step_impl(context, password):
-    context.createAccount_page.confirm_password(password)
-
-
-@when('I click on the create account button')
-def step_impl(context):
-    context.createAccount_page.click_create_account_button()
-
-
-@then('The create account message is "{message}"')
-def step_impl(context, message):
-    assert message in context.createAccount_page.get_message_text()
 
 
 @when('I access My account menu')
@@ -103,8 +74,6 @@ def step_impl(context):
 
 @then('The edit shipping address message is "{message}"')
 def step_impl(context, message):
-    print(message)
-    print(context.myAccount_page.get_save_address_message())
     assert message in context.myAccount_page.get_save_address_message()
 
 
