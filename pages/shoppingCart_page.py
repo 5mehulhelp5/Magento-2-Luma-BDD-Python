@@ -80,5 +80,42 @@ class ShoppingCart(BasePage):
         subtotal_price = float(cart_current_price_without_dollar)
         return subtotal_price
 
+    def calculate_product_total_price(self):
+        i = 5
+
+        cart_product_price = self.wait_for_element(CART_PRODUCT_PRICE_SELECTOR, 5)
+        cart_current_price = cart_product_price.text
+        cart_current_price_without_dollar = cart_current_price.replace('$', '')
+        subtotal_price = float(cart_current_price_without_dollar)
+
+        shipping_product_fee = self.wait_for_element(SHIPPING_FEE_SELECTOR, 5)
+        shipping_current_fee = shipping_product_fee.text
+        shipping_current_fee_without_dollar = shipping_current_fee.replace('$', '')
+        shipping_value = float(shipping_current_fee_without_dollar)
+
+        try:
+            if i >= 3:
+                discount_amount = self.wait_for_element(DISCOUNT_AMOUNT_SELECTOR, 5)
+                discount_value = discount_amount.text
+                discount_value_without_dollar = discount_value.replace('$', '')
+                total_discount_value = float(discount_value_without_dollar)
+                order_value = subtotal_price + total_discount_value
+            else:
+                order_value = subtotal_price
+        except:
+            order_value = subtotal_price
+
+        order_price = order_value + shipping_value
+
+        return order_price
+
+    def store_product_total_value(self):
+        total_price = self.wait_for_element(TOTAL_PRODUCT_PRICE_SELECTOR, 5)
+        total_current_price = total_price.text
+        total_current_price_without_dollar = total_current_price.replace('$', '')
+        order_total = float(total_current_price_without_dollar)
+        return order_total
+
+
 
 

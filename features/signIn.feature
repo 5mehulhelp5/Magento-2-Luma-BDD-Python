@@ -83,7 +83,7 @@ Feature: All signin related tests
 #    When I complete the confirm password "test@magento1"
 #    When I click the submit button
 #    Then The displayed message is "Welcome, Mihai Daneasa!"
-#    When I access the sign out menu
+#    When I click the sign out menu
 #    When I click the sign out button
 #    Then The sign out displayed message is "You are signed out"
 #    When I change handle to home page

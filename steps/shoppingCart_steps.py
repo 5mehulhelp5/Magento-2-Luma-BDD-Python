@@ -117,7 +117,7 @@ def step_impl(context):
     context.subtotal_price = context.shoppingCart_page.store_product_subtotal_price()
 
 
-@then('The final price was calculated correctly')
+@then('I verify if the price is correct')
 def step_impl(context):
     assert f'{context.base_price}' == f'{context.subtotal_price}', 'The price is not correctly calculated'
 
@@ -140,3 +140,19 @@ def step_impl(context):
 @then('The message displayed is "{message}"')
 def step_impl(context, message):
     assert message in context.signOut_page.get_sign_out_message_text()
+
+
+@when('I calculate the product total price')
+def step_impl(context):
+    context.total_price = context.shoppingCart_page.calculate_product_total_price()
+
+
+@when('I store the product total price')
+def step_impl(context):
+    context.total_value = context.shoppingCart_page.store_product_total_value()
+
+
+@then('I verify if the product value is correct')
+def step_impl(context):
+    assert f'{context.total_price}' == f'{context.total_value}', 'The total value is not the same'
+

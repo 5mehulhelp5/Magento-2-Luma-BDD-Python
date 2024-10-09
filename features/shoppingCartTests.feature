@@ -2,7 +2,7 @@
 Feature: All shopping cart related tests
   Scenario: Positive create an account
     Given I create a new account
-  @test
+
   Scenario: Adding a product to shopping cart
     Given I have successfully selected the desired product
     When I close the demo navigation window
@@ -36,7 +36,18 @@ Feature: All shopping cart related tests
     When I chose the quantity "2"
     When I add the product to cart
     When I store the product subtotal price
-    Then The final price was calculated correctly
+    Then I verify if the price is correct
+    When I empty my cart
+
+  Scenario: Verify the total price
+    Given I have successfully selected the desired product
+    When I chose the desired size
+    When I chose the desired color
+    When I chose the quantity "5"
+    When I add the product to cart
+    When I calculate the product total price
+    When I store the product total price
+    Then I verify if the product value is correct
     When I empty my cart
 
   Scenario: Sign out from account
