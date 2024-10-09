@@ -32,7 +32,4 @@ Feature: All tests related to My Account
     Then The edit shipping address message is "You entered incorrect values."
 
   Scenario: Sign out
-    Given I can access the my account page
-    When I click on the sign out menu
-    When I click on the sign out button
-    Then The signout message is "You are signed out"
+    Given I am signed out from account

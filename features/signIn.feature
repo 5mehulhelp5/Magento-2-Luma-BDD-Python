@@ -5,12 +5,12 @@ Feature: All signin related tests
     When I click on the crete account menu
     When I fill the first name "Mihai"
     When I fill the last name "Daneasa"
-    When I fill the email field "testarealfa@test.com"
+    When I fill the email field "testarealfa1@test.com"
     When I fill the password field "test@Magento1"
     When I fill the confirm password field "test@Magento1"
     When I click on create account button
     Then The displayed message is "Welcome, Mihai Daneasa!"
-    When I access the sign out menu
+    When I click the sign out menu
     When I click the sign out button
     Then The sign out displayed message is "You are signed out"
 
@@ -21,7 +21,7 @@ Feature: All signin related tests
     When I fill the password "test@Magento1"
     When I click on sign in button
     Then The displayed message is "Welcome, Mihai Daneasa!"
-    When I access the sign out menu
+    When I click the sign out menu
     When I click the sign out button
     Then The sign out displayed message is "You are signed out"
 

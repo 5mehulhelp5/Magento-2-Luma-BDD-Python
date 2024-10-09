@@ -77,16 +77,11 @@ def step_impl(context, message):
     assert message in context.myAccount_page.get_save_address_message()
 
 
-@when('I click on the sign out menu')
-def step_impl(context):
-    context.signOut_page.click_sign_out_menu()
-
-
-@when('I click on the sign out button')
-def step_impl(context):
-    context.signOut_page.click_sign_out_button()
-
-
-@then('The signout message is "{message}"')
-def step_impl(context, message):
-    assert message in context.signOut_page.get_sign_out_message_text()
+@given('I am signed out from account')
+def step_execute_create_account(context):
+    context.execute_steps('\n'
+                          '        When I click on sign out menu\n'
+                          '        When I click on sign out button\n'
+                          '        Then The sign out message is "You are signed out"\n'
+                          '        '
+                          )

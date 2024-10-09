@@ -39,7 +39,7 @@ def step_execute_choose_a_product(context):
 
 @when('I store the product name')
 def step_impl(context):
-    context.shoppingCart_page.store_product_name()
+    context.store_product_name = context.shoppingCart_page.store_product_name()
 
 
 @when('I chose the desired size')
@@ -69,17 +69,18 @@ def step_impl(context, url):
 
 @when('I restore the product name')
 def step_impl(context):
-    context.shoppingCart_page.restore_product_name()
+    context.restore_product_name = context.shoppingCart_page.restore_product_name()
 
 
-@then('I verify if "{message}"')
-def step_impl(context, message):
-    assert message in context.shoppingCart_page.verify_if_product_is_the_same()
+@then('I verify if the product is the same')
+def step_impl(context):
+    assert f'{context.restore_product_name}' == f'{context.store_product_name}', 'The product is not the same'
 
 
 @when('I empty my cart')
 def step_impl(context):
     context.shoppingCart_page.remove_items()
+
 
 @when('I select the cart menu')
 def step_impl(context):
@@ -118,7 +119,7 @@ def step_impl(context):
 
 @then('The final price was calculated correctly')
 def step_impl(context):
-    assert f'{context.base_price}' == f'{context.subtotal_price}', 'The product is not the same'
+    assert f'{context.base_price}' == f'{context.subtotal_price}', 'The price is not correctly calculated'
 
 
 @when('I close the shopping cart window')

@@ -2,7 +2,7 @@
 Feature: All shopping cart related tests
   Scenario: Positive create an account
     Given I create a new account
-
+  @test
   Scenario: Adding a product to shopping cart
     Given I have successfully selected the desired product
     When I close the demo navigation window
@@ -13,7 +13,7 @@ Feature: All shopping cart related tests
     When I add the product to cart
     Then I am redirected to cart page "https://osc-ultimate-demo.mageplaza.com/default/admindemo/"
     When I restore the product name
-    Then I verify if "The product is the same"
+    Then I verify if the product is the same
     When I empty my cart
 
   Scenario: Remove an item from cart

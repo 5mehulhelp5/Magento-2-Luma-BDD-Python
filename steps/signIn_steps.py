@@ -66,7 +66,7 @@ def step_impl(context):
     context.signIn_page.click_sign_in_button()
 
 
-@when('I access the sign out menu')
+@when('I click the sign out menu')
 def step_impl(context):
     context.signOut_page.click_sign_out_menu()
 
