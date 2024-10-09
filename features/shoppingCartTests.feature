@@ -28,6 +28,17 @@ Feature: All shopping cart related tests
     When I confirm the removal of the product
     Then The removed item message is: "You have no items in your shopping cart."
 
+  Scenario: Verify subtotal price
+    Given I have successfully selected the desired product
+    When I store the product base price
+    When I chose the desired size
+    When I chose the desired color
+    When I chose the quantity "2"
+    When I add the product to cart
+    When I store the product subtotal price
+    Then The final price was calculated correctly
+    When I empty my cart
+
   Scenario: Sign out from account
     When I close the shopping cart window
     When I press the sign out menu

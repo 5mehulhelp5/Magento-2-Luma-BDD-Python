@@ -113,7 +113,7 @@ def step_impl(context):
 
 @when('I store the product presentation images')
 def step_impl(context):
-    context.searchAndFilterProducts_page.store_presentation_images()
+    context.store_product_images = context.searchAndFilterProducts_page.list_presentation_images()
 
 
 @when('I select the size 34')
@@ -128,9 +128,9 @@ def step_impl(context):
 
 @when('I restore the product presentation images')
 def step_impl(context):
-    context.searchAndFilterProducts_page.restore_presentation_images()
+    context.restore_product_images = context.searchAndFilterProducts_page.list_presentation_images()
 
 
-@then('The filtering message is "{message}"')
-def step_impl(context, message):
-    assert message in context.searchAndFilterProducts_page.verify_page_layout()
+@then('The page layout is not modified')
+def step_impl(context):
+    assert f'{context.restore_product_images}' == f'{context.store_product_images}', 'The page layout is modified'

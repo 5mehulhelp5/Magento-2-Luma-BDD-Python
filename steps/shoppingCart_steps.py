@@ -106,6 +106,21 @@ def step_impl(context, message):
     assert message in context.shoppingCart_page.get_removed_item_message()
 
 
+@when('I store the product base price')
+def step_impl(context):
+    context.base_price = context.shoppingCart_page.store_product_base_price()
+
+
+@when('I store the product subtotal price')
+def step_impl(context):
+    context.subtotal_price = context.shoppingCart_page.store_product_subtotal_price()
+
+
+@then('The final price was calculated correctly')
+def step_impl(context):
+    assert f'{context.base_price}' == f'{context.subtotal_price}', 'The product is not the same'
+
+
 @when('I close the shopping cart window')
 def step_impl(context):
     context.shoppingCart_page.close_shopping_cart_window()

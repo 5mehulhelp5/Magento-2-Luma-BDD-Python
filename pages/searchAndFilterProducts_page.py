@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from help_selectors.searchAndFilterProductsSelectors import *
@@ -142,20 +144,17 @@ class SearchAndFilterProducts(BasePage):
     def product_selection(self):
         self.wait_for_element(PRODUCT_NAME_SELECTOR, 5).click()
 
-    def store_presentation_images(self):
-        self.store_page_layout(PRODUCT_PRESENTATION_IMAGES_SELECTOR)
+    def list_presentation_images(self):
+        self.scroll_down_page()
+        presentation_images = WebDriverWait(self.driver, 5).until(
+            EC.presence_of_all_elements_located(PRODUCT_PRESENTATION_IMAGES_SELECTOR))
+        listed_images = list(presentation_images)
+        time.sleep(5)
+
+        return len(listed_images)
 
     def size_selection(self):
         self.wait_for_element(PRODUCT_SIZE_34_SELECTOR, 5).click()
 
     def color_selection(self):
         self.wait_for_element(PRODUCT_COLOR_BLUE_SELECTOR, 5).click()
-
-    def restore_presentation_images(self):
-        self.store_page_layout(PRODUCT_PRESENTATION_IMAGES_SELECTOR)
-
-    def verify_page_layout(self):
-        if self.store_presentation_images == self.restore_presentation_images:
-            return 'The page layout is the same.'
-        else:
-            return 'The page layout was modified'

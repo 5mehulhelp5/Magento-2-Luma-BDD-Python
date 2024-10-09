@@ -70,5 +70,21 @@ class ShoppingCart(BasePage):
     def get_removed_item_message(self):
         return self.get_element_text(DELETED_ITEMS_MESSAGE_SELECTOR)
 
+    def store_product_base_price(self):
+        i = 2
+        product_price = self.wait_for_element(PRODUCT_FINAL_PRICE_SELECTOR, 5)
+        current_price = product_price.text
+        current_price_without_dollar = current_price.replace('$', '')
+        actual_price = float(current_price_without_dollar)
+        base_price = actual_price * i
+        return base_price
+
+    def store_product_subtotal_price(self):
+        cart_product_price = self.wait_for_element(CART_PRODUCT_PRICE_SELECTOR, 5)
+        cart_current_price = cart_product_price.text
+        cart_current_price_without_dollar = cart_current_price.replace('$', '')
+        subtotal_price = float(cart_current_price_without_dollar)
+        return subtotal_price
+
 
 
