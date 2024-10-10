@@ -61,7 +61,7 @@ Feature: All the tests related to create an account
   Scenario: Digits in first name and last name
     When I insert the first name "Mihai1"
     When I insert the last name "Daneasa1"
-    When I insert the email "testare@test.com"
+    When I insert the email "testare1@test.com"
     When I insert the password "test@Magento1"
     When I confirm the password "test@Magento1"
     When I click the create account button

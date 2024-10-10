@@ -45,5 +45,11 @@ You can create also reports for the executed tests using the command:
 ![Imagine 4](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport4.jpg)
 ![Imagine 5](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport5.jpg)
 ![Imagine 6](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport6.jpg)
+![Imagine 7](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport7.jpg)
+![Imagine 8](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport8.jpg)
+![Imagine 9](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport9.jpg)
+![Imagine 10](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport10.jpg)
+![Imagine 11](https://github.com/mihaidaneasa/Magento-2-Luma-BDD-Python/blob/main/reports/Raport11.jpg)
+
 
 

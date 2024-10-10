@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-EDIT_BUTTON_SELECTOR = (By.XPATH, '//span[contains(text(), "Edit")]')
 EDIT_SHIPPING_ADDRESS_SELECTOR = (By.XPATH, '//span[contains(text(), "Edit Address")]')
 MY_ACCOUNT_BUTTON_SELECTOR = (By.XPATH, '//li/a[contains(text(), "My Account")]')
 MY_ACCOUNT_MENU_SELECTOR = (By.XPATH, '//button[@class="action switch" and @data-action="customer-menu-toggle"]')

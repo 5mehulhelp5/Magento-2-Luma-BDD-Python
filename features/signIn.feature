@@ -5,7 +5,7 @@ Feature: All signin related tests
     When I click on the crete account menu
     When I fill the first name "Mihai"
     When I fill the last name "Daneasa"
-    When I fill the email field "testarealfa1@test.com"
+    When I fill the email field "testarealfa@test.com"
     When I fill the password field "test@Magento1"
     When I fill the confirm password field "test@Magento1"
     When I click on create account button

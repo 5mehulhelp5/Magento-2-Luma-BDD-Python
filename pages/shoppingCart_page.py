@@ -116,6 +116,42 @@ class ShoppingCart(BasePage):
         order_total = float(total_current_price_without_dollar)
         return order_total
 
+    def click_edit_item_button(self):
+        self.action_chain(EDIT_ITEM_IN_CART_SELECTOR)
+
+    def change_the_size(self):
+        self.wait_for_element(PRODUCT_SECOND_SIZE_SELECTOR, 5).click()
+
+    def change_the_color(self):
+        self.wait_for_element(PRODUCT_SECOND_COLOR_SELECTOR, 5).click()
+
+    def change_the_quantity(self, value):
+        self.type(QUANTITY_SELECTOR, value)
+
+    def update_cart(self):
+        self.wait_for_element(UPDATE_CART_SELECTOR, 5).click()
+
+    def get_update_cart_message(self):
+        return self.get_element_text(UPDATE_MESSAGE_SELECTOR)
+
+    def insert_street_address(self, street):
+        self.type(SHIPPING_STREET_SELECTOR, street)
+
+    def insert_phone_number(self, phone):
+        self.type(SHIPPING_PHONE_SELECTOR, phone)
+
+    def check_billing_address(self):
+        self.wait_for_element(CHECKBOX_BILLING_ADDRESS_SELECTOR, 5).click()
+
+    def accept_terms(self):
+        self.wait_for_element(ACCEPT_AGREEMENT, 5).click()
+
+    def place_order(self):
+        self.action_chain(PLACE_ORDER_SELECTOR)
+
+    def get_confirmation_message(self):
+        time.sleep(5)
+        return self.get_element_text(THANKS_MESSAGE_SELECTOR)
 
 
 

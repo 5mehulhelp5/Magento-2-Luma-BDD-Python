@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-CLOSE_DEMO_NAVIGATION_SELECTOR = (By.XPATH, '//button[@class="navigation-close" and @title="Close navigation"]')
 CONFIRM_PASSWORD_SELECTOR = (By.XPATH, '//input[@id="password-confirmation-social" and @title="Confirm Password"]')
 CREATE_ACCOUNT_SELECTOR = (By.XPATH, '//a[contains(text(), "Create an Account")]')
 CREATE_ACCOUNT_BUTTON_SELECTOR = (By.XPATH, '//button[@id="button-create-social" and @title="Create an Account"]')

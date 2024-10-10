@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-LAST_PAGE_NUMBER_SELECTOR = (By.XPATH, '//div[@class="pages"]/ul[@class="items pages-items"]/li[@class="item"][last()]/a/span[last()][last()]')
 MAN_BOTTOMS_MENU_SELECTOR = (By.XPATH, '//a[contains(text(), "Bottoms")]')
 MAN_MENU_SELECTOR = (By.XPATH, '//li[@class="level0 nav-3 category-item level-top parent ui-menu-item"]')
 MAN_PANTS_MENU_SELECTOR = (By.XPATH, '//a[contains(text(), "Pants")]')
@@ -13,7 +12,6 @@ PRODUCT_COLOR_BLUE_SELECTOR = (By.XPATH, '//div[@class="swatch-option color" and
 PRODUCT_ITEM_SELECTOR = (By.XPATH, '//div[@class="product details product-item-details"]')
 PRODUCT_NAME_SELECTOR = (By.XPATH, '(//strong[@class="product name product-item-name"])[2]')
 PRODUCT_PRESENTATION_IMAGES_SELECTOR = (By.XPATH, '//div[@class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]')
-PRODUCT_FINAL_PRICE_SELECTOR = (By.XPATH, '//span[@data-price-type="finalPrice"]')
 PRODUCT_PRICE_SELECTOR = (By.XPATH, '//span[@data-price-type="finalPrice"]')
 PRODUCT_SIZE_SELECTOR = (By.XPATH, '//div[contains(text(), "Size")]')
 PRODUCT_SIZE_34_SELECTOR = (By.XPATH, '//div[@class="swatch-option text" and @data-option-label="34"]')

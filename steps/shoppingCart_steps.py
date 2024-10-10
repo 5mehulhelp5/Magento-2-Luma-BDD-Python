@@ -122,9 +122,79 @@ def step_impl(context):
     assert f'{context.base_price}' == f'{context.subtotal_price}', 'The price is not correctly calculated'
 
 
-@when('I close the shopping cart window')
+@when('I calculate the product total price')
 def step_impl(context):
-    context.shoppingCart_page.close_shopping_cart_window()
+    context.total_price = context.shoppingCart_page.calculate_product_total_price()
+
+
+@when('I store the product total price')
+def step_impl(context):
+    context.total_value = context.shoppingCart_page.store_product_total_value()
+
+
+@then('I verify if the product value is correct')
+def step_impl(context):
+    assert f'{context.total_price}' == f'{context.total_value}', 'The total value is not the same'
+
+
+@when('I click the edit item button')
+def step_impl(context):
+    context.shoppingCart_page.click_edit_item_button()
+
+
+@when('I change the size')
+def step_impl(context):
+    context.shoppingCart_page.change_the_size()
+
+
+@when('I change the color')
+def step_impl(context):
+    context.shoppingCart_page.change_the_color()
+
+
+@when('I change the quantity to "{value}" pieces')
+def step_impl(context, value):
+    context.shoppingCart_page.change_the_quantity(value)
+
+
+@when('I update the cart')
+def step_impl(context):
+    context.shoppingCart_page.update_cart()
+
+
+@then('The update message is: "{message}"')
+def step_impl(context, message):
+    assert message in context.shoppingCart_page.get_update_cart_message(), 'The cart is not updated.'
+
+
+@when('I insert the street "{street}"')
+def step_impl(context, street):
+    context.shoppingCart_page.insert_street_address(street)
+
+
+@when('I insert the phone number "{phone}"')
+def step_impl(context, phone):
+    context.shoppingCart_page.insert_phone_number(phone)
+
+
+@when('I check the box "My billing and shipping address are the same"')
+def step_impl(context):
+    context.shoppingCart_page.check_billing_address()
+
+
+@when('I accept the terms and conditions')
+def step_impl(context):
+    context.shoppingCart_page.accept_terms()
+
+
+@when('I place the order')
+def step_impl(context):
+    context.shoppingCart_page.place_order()
+
+
+@then('The confirmation message is: "{message}"')
+def step_impl(context, message):
+    assert message in context.shoppingCart_page.get_confirmation_message(), 'The message is not present'
 
 
 @when('I press the sign out menu')
@@ -140,19 +210,3 @@ def step_impl(context):
 @then('The message displayed is "{message}"')
 def step_impl(context, message):
     assert message in context.signOut_page.get_sign_out_message_text()
-
-
-@when('I calculate the product total price')
-def step_impl(context):
-    context.total_price = context.shoppingCart_page.calculate_product_total_price()
-
-
-@when('I store the product total price')
-def step_impl(context):
-    context.total_value = context.shoppingCart_page.store_product_total_value()
-
-
-@then('I verify if the product value is correct')
-def step_impl(context):
-    assert f'{context.total_price}' == f'{context.total_value}', 'The total value is not the same'
-
