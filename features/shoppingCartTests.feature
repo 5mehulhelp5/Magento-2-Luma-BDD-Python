@@ -1,5 +1,5 @@
 @shoppingCart
-Feature: All shopping cart related tests
+Feature: All shopping cart related tests (#all test are passed if they are run with the tag)
   Scenario: Positive create an account
     Given I create a new account
 
@@ -82,6 +82,4 @@ Feature: All shopping cart related tests
     Then The confirmation message is: "Thank you for your purchase!"
 
   Scenario: Sign out from account
-    When I press the sign out menu
-    When I press the sign out button
-    Then The message displayed is "You are signed out"
+    Given I am signed out from the account
